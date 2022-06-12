@@ -1,0 +1,28 @@
+{
+  "name": "example",
+  "version": "0.0.1",
+  "description": "just for testing",
+  "main": "index.js",
+  "private": "true",
+  "scripts": {
+    "build": "tsc && webpack",
+    "serve": "nodemon -w . server.mjs"
+  },
+  "keywords": [
+    "nmhillusion",
+    "n2log",
+    "n2log4web",
+    "log"
+  ],
+  "author": "nmhillusion",
+  "license": "MIT",
+  "dependencies": {
+    "n2log4web": "file:.."
+  },
+  "devDependencies": {
+    "express": "^4.18.1",
+    "nodemon": "^2.0.16",
+    "webpack": "^5.73.0",
+    "webpack-cli": "^4.9.2"
+  }
+}

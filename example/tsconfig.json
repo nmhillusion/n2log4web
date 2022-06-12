@@ -1,0 +1,14 @@
+{
+  "compilerOptions": {
+    "strict": true,
+    "target": "ES6",
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "declaration": false,
+    "rootDir": "./web",
+    "outDir": "./web/dist",
+    "esModuleInterop": true
+  },
+  "include": ["./web"],
+  "exclude": ["./node_modules", "./web/dist"]
+}
