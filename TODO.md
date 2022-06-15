@@ -1,0 +1,2 @@
+- config display timestamp
+- save node log to file
