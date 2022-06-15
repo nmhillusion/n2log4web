@@ -1,12 +1,10 @@
-import { LoggerConfig, LOG_LEVELS, NodeLogger } from "../src/core/index";
+import { LogFactory, LoggerConfig, LOG_LEVELS } from "../src/core/index";
 
 test("test color", () => {
-  const nodeLogger = new NodeLogger(
-    "TestNodeLogger",
-    new LoggerConfig()
-      .setFocusType("background")
-      .setLoggableLevel(LOG_LEVELS.DEBUG)
-  );
+  const nodeLogger = LogFactory.getNodeLog("n2logTester")
+    .setConfigFocusType("color")
+    .setConfigLoggableLevel(LOG_LEVELS.DEBUG)
+    .addColorConfig({ logLevel: LOG_LEVELS.INFO, color: "#ffffff" });
 
   expect(() => nodeLogger.debug("test logger - debug")).not.toThrow();
   expect(() => nodeLogger.info("test logger - info")).not.toThrow();

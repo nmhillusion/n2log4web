@@ -37,19 +37,19 @@ export class BrowserLogger extends AbstractLogger {
     const { colorConfigs } = loggerConfig;
     this.fillColorConfig(colorConfigs, {
       logLevel: LOG_LEVELS.DEBUG,
-      color: "#233",
+      color: "#223333",
     });
     this.fillColorConfig(colorConfigs, {
       logLevel: LOG_LEVELS.INFO,
-      color: "darkcyan",
+      color: "#008b8b",
     });
     this.fillColorConfig(colorConfigs, {
       logLevel: LOG_LEVELS.WARN,
-      color: "goldenrod",
+      color: "#daa520",
     });
     this.fillColorConfig(colorConfigs, {
       logLevel: LOG_LEVELS.ERROR,
-      color: "#f11",
+      color: "#ff1111",
     });
   }
 
@@ -65,17 +65,20 @@ export class BrowserLogger extends AbstractLogger {
     }
   }
 
-  buildStyleOfLogLevel(logLevel: LogLevel): string {
+  private buildStyleOfLogLevel(logLevel: LogLevel): string {
     const logColor = this.loggerConfig.getColorOfLogLevel(logLevel);
-    let primaryColor = "white";
-    let backgroundColor = "black";
+    const defaultPrimaryColor = "#ffffff";
+    const defaultBackgroundColor = "#000000";
+
+    let primaryColor = defaultPrimaryColor;
+    let backgroundColor: string | null = defaultBackgroundColor;
 
     if (logColor) {
       if ("color" === this.loggerConfig.focusType) {
         primaryColor = logColor;
         backgroundColor = "transparent";
       } else if ("background" === this.loggerConfig.focusType) {
-        primaryColor = "white";
+        primaryColor = defaultPrimaryColor;
         backgroundColor = logColor;
       }
     }

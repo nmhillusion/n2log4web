@@ -10,7 +10,7 @@ export abstract class AbstractLogger implements ILogger {
 
   protected abstract doLog(logLevel: LogLevel, ...data: any[]): void;
 
-  timestamp() {
+  protected timestamp() {
     function fill2chars(input: string | number) {
       input = String(input);
 
@@ -51,5 +51,33 @@ export abstract class AbstractLogger implements ILogger {
 
   error(...data: any[]): void {
     this.doLog(LOG_LEVELS.ERROR, ...data);
+  }
+
+  setConfigFocusType(focusType: "color" | "background"): AbstractLogger {
+    this.loggerConfig.setFocusType(focusType);
+    return this;
+  }
+
+  setConfigLoggableLevel(loggableLevel: LogLevel): AbstractLogger {
+    this.loggerConfig.setLoggableLevel(loggableLevel);
+    return this;
+  }
+
+  addColorConfig({
+    logLevel,
+    color,
+  }: {
+    logLevel: LogLevel;
+    color: string;
+  }): AbstractLogger {
+    const foundColorConfig = this.loggerConfig.colorConfigs.find((cfg) =>
+      cfg.logLevel.equals(logLevel)
+    );
+    if (!foundColorConfig) {
+      this.loggerConfig.colorConfigs.push({ logLevel, color });
+    } else {
+      foundColorConfig.color = color;
+    }
+    return this;
   }
 }

@@ -1,11 +1,14 @@
 import { LoggerConfig, LogLevel, LOG_LEVELS } from "../types";
 import { AbstractLogger } from "./AbstractLogger";
-import chalk from "chalk";
+import _chalk, { Chalk } from "chalk";
 
 export class NodeLogger extends AbstractLogger {
+  private chalk: Chalk;
+
   constructor(logName: string | File, loggerConfig: LoggerConfig) {
     super(logName, loggerConfig);
-    chalk.Level = 3;
+    this.chalk = _chalk;
+    this.chalk.level = 3;
 
     this.setupColorConfigForLog(loggerConfig);
   }
@@ -65,7 +68,7 @@ export class NodeLogger extends AbstractLogger {
     }
   }
 
-  buildStyleOfLogLevel(logLevel: LogLevel): string {
+  private buildStyleOfLogLevel(logLevel: LogLevel): string {
     const logColor = this.loggerConfig.getColorOfLogLevel(logLevel);
     const defaultPrimaryColor = "#ffffff";
     const defaultBackgroundColor = "#000000";
@@ -84,8 +87,8 @@ export class NodeLogger extends AbstractLogger {
     }
 
     const combinedChalk = backgroundColor
-      ? chalk.bgHex(backgroundColor).hex(primaryColor)
-      : chalk.hex(primaryColor);
+      ? this.chalk.bgHex(backgroundColor).hex(primaryColor)
+      : this.chalk.hex(primaryColor);
     return combinedChalk.bold(logLevel.levelName);
   }
 }
