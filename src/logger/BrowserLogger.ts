@@ -56,7 +56,7 @@ export class BrowserLogger extends AbstractLogger {
   protected doLog(logLevel: LogLevel, ...data: any[]): void {
     if (this.loggerConfig.isLoggable(logLevel)) {
       console.log(
-        `${this.timestamp()} -- [${this.logName.toString()}] -- %c[${
+        `${this.timestamp()}[${this.logName.toString()}] -- %c[${
           logLevel.levelName
         }]`,
         this.buildStyleOfLogLevel(logLevel),

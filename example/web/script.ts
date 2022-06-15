@@ -1,6 +1,9 @@
-import { LogFactory } from "n2log4web";
+import { LogFactory, LoggerConfig } from "n2log4web";
 
 const logger = LogFactory.fromDefaultConfig().getBrowserLog("BrowserLogger");
+const loggerWithNoTimestamp = LogFactory.fromConfig(
+  new LoggerConfig().setIncludingTimestamp(false)
+).getBrowserLog("BrowserLogger");
 
 function callFn(fn: (...params: any[]) => any) {
   return (..._params: any[]) => fn.apply(_params);
@@ -11,3 +14,15 @@ logger.info("test info", 17);
 logger.info("test info", callFn(String.prototype.toLowerCase)("JAVASCRIPT"));
 logger.warn("test warn", String.prototype.toUpperCase.apply("hello"));
 logger.error("test error", { date: new Date() });
+
+loggerWithNoTimestamp.debug("test debug", [16]);
+loggerWithNoTimestamp.info("test info", 7);
+loggerWithNoTimestamp.info(
+  "test info",
+  callFn(String.prototype.toLowerCase)("Promise")
+);
+loggerWithNoTimestamp.warn(
+  "test warn",
+  String.prototype.toUpperCase.apply("hiiii")
+);
+loggerWithNoTimestamp.error("test error", { date: new Date().getFullYear() });

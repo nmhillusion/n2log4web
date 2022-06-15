@@ -4,6 +4,7 @@ export class LoggerConfig {
   private loggableLevel_: LogLevel = LOG_LEVELS.INFO;
   private focusType_: "color" | "background" = "color";
   private colorConfigs_: { logLevel: LogLevel; color: string }[] = [];
+  private includingTimestamp_: boolean = true;
 
   setLoggableLevel(loggableLevel: LogLevel) {
     this.loggableLevel_ = loggableLevel;
@@ -17,6 +18,11 @@ export class LoggerConfig {
 
   setColorConfigs(colorConfigs: { logLevel: LogLevel; color: string }[]) {
     this.colorConfigs_.push(...colorConfigs);
+    return this;
+  }
+
+  setIncludingTimestamp(includingTimestamp: boolean) {
+    this.includingTimestamp_ = includingTimestamp;
     return this;
   }
 
@@ -34,6 +40,10 @@ export class LoggerConfig {
 
   get colorConfigs() {
     return this.colorConfigs_;
+  }
+
+  get includingTimestamp() {
+    return this.includingTimestamp_;
   }
 
   getColorOfLogLevel(logLevel: LogLevel): string | undefined {

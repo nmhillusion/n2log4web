@@ -62,7 +62,7 @@ export class NodeLogger extends AbstractLogger {
     if (this.loggerConfig.isLoggable(logLevel)) {
       const stylingLevelName = this.buildStyleOfLogLevel(logLevel);
       console.log(
-        `${this.timestamp()} -- [${this.logName.toString()}] -- [${stylingLevelName}]`,
+        `${this.timestamp()}[${this.logName.toString()}] -- [${stylingLevelName}]`,
         ...data
       );
     }

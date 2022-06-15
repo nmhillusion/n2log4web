@@ -30,11 +30,11 @@ export abstract class AbstractLogger implements ILogger {
     const second = date.getSeconds();
     const millis = date.getMilliseconds();
 
-    return (
-      `${year}-${fill2chars(month)}-${fill2chars(day)} ` +
-      `${fill2chars(hour)}:${fill2chars(minute)}:${fill2chars(second)}` +
-      `.${fill2chars(millis)}`
-    );
+    return this.loggerConfig.includingTimestamp
+      ? `${year}-${fill2chars(month)}-${fill2chars(day)} ` +
+          `${fill2chars(hour)}:${fill2chars(minute)}:${fill2chars(second)}` +
+          `.${fill2chars(millis)} -- `
+      : "";
   }
 
   debug(...data: any[]): void {
