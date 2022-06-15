@@ -1,16 +1,6 @@
-import { BrowserLogger, LoggerConfig, LOG_LEVELS } from "n2log4web";
+import { LogFactory } from "n2log4web";
 
-const logger = new BrowserLogger(
-  "TestLogger",
-  new LoggerConfig()
-    .setFocusType("background")
-    .setLoggableLevel(LOG_LEVELS.DEBUG)
-    .setColorConfigs([
-      { logLevel: LOG_LEVELS.DEBUG, color: "darkgreen" },
-      { logLevel: LOG_LEVELS.INFO, color: "darkcyan" },
-      { logLevel: LOG_LEVELS.WARN, color: "orange" },
-    ])
-);
+const logger = LogFactory.fromDefaultConfig().getBrowserLog("BrowserLogger");
 
 function callFn(fn: (...params: any[]) => any) {
   return (..._params: any[]) => fn.apply(_params);
