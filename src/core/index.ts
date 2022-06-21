@@ -28,7 +28,15 @@ export class LogFactory {
     return new LoggerBuilder(loggerConfig);
   }
 
-  static fromDefaultConfig(): LoggerBuilder {
+  private static fromDefaultConfig(): LoggerBuilder {
     return this.fromConfig(this.loggerConfig);
+  }
+
+  static getNodeLog(logName: string | File): NodeLogger {
+    return this.fromDefaultConfig().getNodeLog(logName);
+  }
+
+  static getBrowserLog(logName: string | File): BrowserLogger {
+    return this.fromDefaultConfig().getBrowserLog(logName);
   }
 }

@@ -3,6 +3,7 @@
   "version": "0.0.1",
   "description": "n2logger - a logger for web: js and node",
   "main": "dist/core/index.js",
+  "types": "dist/core/index.d.ts",
   "files": [
     "dist/"
   ],
