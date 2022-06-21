@@ -43,5 +43,11 @@ class LogFactory {
     static fromDefaultConfig() {
         return this.fromConfig(this.loggerConfig);
     }
+    static getNodeLog(logName) {
+        return this.fromDefaultConfig().getNodeLog(logName);
+    }
+    static getBrowserLog(logName) {
+        return this.fromDefaultConfig().getBrowserLog(logName);
+    }
 }
 exports.LogFactory = LogFactory;

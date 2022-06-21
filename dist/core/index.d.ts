@@ -11,5 +11,7 @@ declare class LoggerBuilder {
 export declare class LogFactory {
     private static get loggerConfig();
     static fromConfig(loggerConfig: LoggerConfig): LoggerBuilder;
-    static fromDefaultConfig(): LoggerBuilder;
+    private static fromDefaultConfig;
+    static getNodeLog(logName: string | File): NodeLogger;
+    static getBrowserLog(logName: string | File): BrowserLogger;
 }

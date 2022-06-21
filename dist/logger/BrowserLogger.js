@@ -14,15 +14,6 @@ class BrowserLogger extends AbstractLogger_1.AbstractLogger {
         this.chalk.level = 3;
     }
     doLog(logLevel, ...data) {
-        // if (this.loggerConfig.isLoggable(logLevel)) {
-        //   console.log(
-        //     `${this.timestamp()}[${this.logName.toString()}] -- %c[${
-        //       logLevel.levelName
-        //     }]`,
-        //     this.buildStyleOfLogLevel(logLevel),
-        //     ...data
-        //   );
-        // }
         if (this.loggerConfig.isLoggable(logLevel)) {
             const stylingLevelName = this.buildStyleOfLogLevel(logLevel);
             console.log(`${this.timestamp()}${this.buildLogNamePart()} -- [${stylingLevelName}]`, ...data);
@@ -33,21 +24,6 @@ class BrowserLogger extends AbstractLogger_1.AbstractLogger {
         return this.chalk.cyan(`[${logName}]`);
     }
     buildStyleOfLogLevel(logLevel) {
-        // const logColor = this.loggerConfig.getColorOfLogLevel(logLevel);
-        // const defaultPrimaryColor = "#ffffff";
-        // const defaultBackgroundColor = "#000000";
-        // let primaryColor = defaultPrimaryColor;
-        // let backgroundColor: string | null = defaultBackgroundColor;
-        // if (logColor) {
-        //   if ("color" === this.loggerConfig.focusType) {
-        //     primaryColor = logColor;
-        //     backgroundColor = "transparent";
-        //   } else if ("background" === this.loggerConfig.focusType) {
-        //     primaryColor = defaultPrimaryColor;
-        //     backgroundColor = logColor;
-        //   }
-        // }
-        // return `color: ${primaryColor}; background-color: ${backgroundColor}`;
         const logColor = this.loggerConfig.getColorOfLogLevel(logLevel);
         const defaultPrimaryColor = "#ffffff";
         const defaultBackgroundColor = "#000000";
