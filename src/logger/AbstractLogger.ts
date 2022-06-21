@@ -10,6 +10,51 @@ export abstract class AbstractLogger implements ILogger {
 
   protected abstract doLog(logLevel: LogLevel, ...data: any[]): void;
 
+  private fillColorConfig(
+    colorConfigs: {
+      logLevel: LogLevel;
+      color: string;
+    }[],
+    {
+      logLevel,
+      color,
+    }: {
+      logLevel: LogLevel;
+      color: string;
+    }
+  ) {
+    const foundConfig = colorConfigs.find((cfg) =>
+      cfg.logLevel.equals(logLevel)
+    );
+
+    if (!foundConfig) {
+      colorConfigs.push({
+        logLevel: logLevel,
+        color: color,
+      });
+    }
+  }
+
+  protected setupColorConfigForLog(loggerConfig: LoggerConfig) {
+    const { colorConfigs } = loggerConfig;
+    this.fillColorConfig(colorConfigs, {
+      logLevel: LOG_LEVELS.DEBUG,
+      color: "#223333",
+    });
+    this.fillColorConfig(colorConfigs, {
+      logLevel: LOG_LEVELS.INFO,
+      color: "#008b8b",
+    });
+    this.fillColorConfig(colorConfigs, {
+      logLevel: LOG_LEVELS.WARN,
+      color: "#daa520",
+    });
+    this.fillColorConfig(colorConfigs, {
+      logLevel: LOG_LEVELS.ERROR,
+      color: "#ff1111",
+    });
+  }
+
   protected timestamp() {
     function fill2chars(input: string | number) {
       input = String(input);
