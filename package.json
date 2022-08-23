@@ -11,7 +11,8 @@
     "start": "tsc",
     "watch": "tsc -w",
     "build": "tsc && ts-node ./support/build-publish-package-json.ts",
-    "test": "jest"
+    "test": "jest",
+    "tag-version": "ts-node ./support/tag-version.ts"
   },
   "keywords": [
     "nmhillusion",
