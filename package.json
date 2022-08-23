@@ -10,6 +10,7 @@
   "scripts": {
     "start": "tsc",
     "watch": "tsc -w",
+    "build": "tsc && ts-node ./support/build-publish-package-json.ts",
     "test": "jest"
   },
   "keywords": [
@@ -21,11 +22,13 @@
   "author": "nmhillusion",
   "license": "MIT",
   "devDependencies": {
+    "@nmhillusion/n2mix": "^2022.0.9",
     "@types/jest": "^28.1.1",
     "chalk": "4.1.2",
     "jest": "^28.1.1",
+    "path": "^0.12.7",
     "ts-jest": "^28.0.4",
-    "typescript": "^4.7.3",
-    "@nmhillusion/n2mix": "^2022.0.9"
+    "ts-node": "^10.9.1",
+    "typescript": "^4.7.3"
   }
 }
