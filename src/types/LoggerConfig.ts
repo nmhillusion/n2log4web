@@ -1,7 +1,7 @@
-import { LogLevel, LOG_LEVELS } from "./LogLevel";
+import { LogLevel } from "./LogLevel";
 
 export class LoggerConfig {
-  private loggableLevel_: LogLevel = LOG_LEVELS.INFO;
+  private loggableLevel_: LogLevel = LogLevel.INFO;
   private focusType_: "color" | "background" = "color";
   private colorConfigs_: { logLevel: LogLevel; color: string }[] = [];
   private includingTimestamp_: boolean = true;

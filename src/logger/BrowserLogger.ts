@@ -1,5 +1,5 @@
 import { LoggerConfig } from "../types/LoggerConfig";
-import { LogLevel, LOG_LEVELS } from "../types/LogLevel";
+import { LogLevel } from "../types/LogLevel";
 import { AbstractLogger } from "./AbstractLogger";
 import _chalk, { Chalk } from "chalk";
 

@@ -16,11 +16,9 @@ export class LogLevel {
   isGreaterThan(other: LogLevel): boolean {
     return 0 < this.compare(other);
   }
-}
 
-export const LOG_LEVELS = {
-  ERROR: new LogLevel(9, "ERROR"),
-  WARN: new LogLevel(7, "WARN"),
-  INFO: new LogLevel(5, "INFO"),
-  DEBUG: new LogLevel(3, "DEBUG"),
-};
+  static ERROR = new LogLevel(9, "ERROR");
+  static WARN = new LogLevel(7, "WARN");
+  static INFO = new LogLevel(5, "INFO");
+  static DEBUG = new LogLevel(3, "DEBUG");
+}

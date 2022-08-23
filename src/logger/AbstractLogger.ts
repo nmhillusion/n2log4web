@@ -1,5 +1,5 @@
 import { LoggerConfig } from "../types/LoggerConfig";
-import { LogLevel, LOG_LEVELS } from "../types/LogLevel";
+import { LogLevel } from "../types/LogLevel";
 import { ILogger } from "./ILogger";
 
 export abstract class AbstractLogger implements ILogger {
@@ -38,19 +38,19 @@ export abstract class AbstractLogger implements ILogger {
   protected setupColorConfigForLog(loggerConfig: LoggerConfig) {
     const { colorConfigs } = loggerConfig;
     this.fillColorConfig(colorConfigs, {
-      logLevel: LOG_LEVELS.DEBUG,
+      logLevel: LogLevel.DEBUG,
       color: "#223333",
     });
     this.fillColorConfig(colorConfigs, {
-      logLevel: LOG_LEVELS.INFO,
+      logLevel: LogLevel.INFO,
       color: "#008b8b",
     });
     this.fillColorConfig(colorConfigs, {
-      logLevel: LOG_LEVELS.WARN,
+      logLevel: LogLevel.WARN,
       color: "#daa520",
     });
     this.fillColorConfig(colorConfigs, {
-      logLevel: LOG_LEVELS.ERROR,
+      logLevel: LogLevel.ERROR,
       color: "#ff1111",
     });
   }
@@ -83,19 +83,19 @@ export abstract class AbstractLogger implements ILogger {
   }
 
   debug(...data: any[]): void {
-    this.doLog(LOG_LEVELS.DEBUG, ...data);
+    this.doLog(LogLevel.DEBUG, ...data);
   }
 
   info(...data: any[]): void {
-    this.doLog(LOG_LEVELS.INFO, ...data);
+    this.doLog(LogLevel.INFO, ...data);
   }
 
   warn(...data: any[]): void {
-    this.doLog(LOG_LEVELS.WARN, ...data);
+    this.doLog(LogLevel.WARN, ...data);
   }
 
   error(...data: any[]): void {
-    this.doLog(LOG_LEVELS.ERROR, ...data);
+    this.doLog(LogLevel.ERROR, ...data);
   }
 
   setConfigFocusType(focusType: "color" | "background"): AbstractLogger {

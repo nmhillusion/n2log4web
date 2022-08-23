@@ -1,9 +1,7 @@
-import { LogFactory, LoggerConfig, LOG_LEVELS } from "n2log4web";
+import { LogFactory, LoggerConfig, LogLevel } from "@nmhillusion/n2log4web";
 
 const logger = LogFactory.fromConfig(
-  new LoggerConfig()
-    .setFocusType("background")
-    .setLoggableLevel(LOG_LEVELS.DEBUG)
+  new LoggerConfig().setFocusType("background").setLoggableLevel(LogLevel.DEBUG)
 ).getBrowserLog("BrowserLogger");
 
 const loggerWithNoTimestamp = LogFactory.fromConfig(

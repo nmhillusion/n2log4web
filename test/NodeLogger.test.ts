@@ -1,11 +1,22 @@
-import { LogFactory, LoggerConfig, LOG_LEVELS } from "../src/core/index";
+import { LogFactory, LoggerConfig, LogLevel } from "../src/core/index";
+
+test("test simple log", () => {
+  const logger = LogFactory.getNodeLog(__filename).setConfigLoggableLevel(
+    LogLevel.DEBUG
+  );
+
+  logger.info("[i] simple log");
+  logger.debug("[d] simple log");
+  logger.warn("[w] simple log");
+  logger.error("[e] simple log");
+});
 
 test("test color", () => {
   const nodeLogger = LogFactory.fromConfig(
     new LoggerConfig()
       .setFocusType("color")
-      .setLoggableLevel(LOG_LEVELS.DEBUG)
-      .setColorConfigs([{ logLevel: LOG_LEVELS.INFO, color: "#800080" }])
+      .setLoggableLevel(LogLevel.DEBUG)
+      .setColorConfigs([{ logLevel: LogLevel.INFO, color: "#800080" }])
   ).getNodeLog("n2logTester");
   expect(() => nodeLogger.debug("test logger color - debug")).not.toThrow();
   expect(() => nodeLogger.info("test logger color - info")).not.toThrow();

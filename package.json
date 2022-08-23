@@ -1,6 +1,6 @@
 {
-  "name": "n2log4web",
-  "version": "0.0.1",
+  "name": "@nmhillusion/n2log4web",
+  "version": "2022.0.1+1",
   "description": "n2logger - a logger for web: js and node",
   "main": "dist/core/index.js",
   "types": "dist/core/index.d.ts",
@@ -25,6 +25,7 @@
     "chalk": "4.1.2",
     "jest": "^28.1.1",
     "ts-jest": "^28.0.4",
-    "typescript": "^4.7.3"
+    "typescript": "^4.7.3",
+    "@nmhillusion/n2mix": "^2022.0.9"
   }
 }

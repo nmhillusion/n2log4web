@@ -1,6 +1,6 @@
 import { BrowserLogger, NodeLogger } from "../logger";
 import { LoggerConfig } from "../types/LoggerConfig";
-import { LOG_LEVELS } from "../types/LogLevel";
+import { LogLevel } from "../types/LogLevel";
 
 export * from "../logger/index";
 export * from "../types/index";
@@ -21,7 +21,7 @@ export class LogFactory {
   private static get loggerConfig() {
     return new LoggerConfig()
       .setFocusType("color")
-      .setLoggableLevel(LOG_LEVELS.INFO);
+      .setLoggableLevel(LogLevel.INFO);
   }
 
   static fromConfig(loggerConfig: LoggerConfig): LoggerBuilder {
