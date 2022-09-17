@@ -18,10 +18,16 @@ class LoggerBuilder {
 }
 
 export class LogFactory {
+  private static __defaultConfig = new LoggerConfig()
+    .setFocusType("color")
+    .setLoggableLevel(LogLevel.INFO);
+
   private static get loggerConfig() {
-    return new LoggerConfig()
-      .setFocusType("color")
-      .setLoggableLevel(LogLevel.INFO);
+    return LogFactory.__defaultConfig;
+  }
+
+  public static setDefaultConfig(defaultConfig: LoggerConfig) {
+    this.__defaultConfig = defaultConfig;
   }
 
   static fromConfig(loggerConfig: LoggerConfig): LoggerBuilder {

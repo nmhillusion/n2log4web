@@ -1,14 +1,25 @@
 import { LogFactory, LoggerConfig, LogLevel } from "../src/core/index";
 
-test("test simple log", () => {
-  const logger = LogFactory.getNodeLog(__filename).setConfigLoggableLevel(
-    LogLevel.DEBUG
+test("test simple log with setting default config", () => {
+  LogFactory.setDefaultConfig(
+    new LoggerConfig()
+      .setLoggableLevel(LogLevel.DEBUG)
+      .setFocusType("background")
   );
 
-  logger.info("[i] simple log");
-  logger.debug("[d] simple log");
-  logger.warn("[w] simple log");
-  logger.error("[e] simple log");
+  const logger = LogFactory.getNodeLog(__filename);
+
+  logger.info("[i1] simple log");
+  logger.debug("[d1] simple log");
+  logger.warn("[w1] simple log");
+  logger.error("[e1] simple log");
+
+  const logger2 = LogFactory.getNodeLog(__filename);
+
+  logger2.info("[i2] simple log");
+  logger2.debug("[d2] simple log");
+  logger2.warn("[w2] simple log");
+  logger2.error("[e2] simple log");
 });
 
 test("test color", () => {
