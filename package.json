@@ -1,6 +1,6 @@
 {
   "name": "@nmhillusion/n2log4web",
-  "version": "2022.0.1+1",
+  "version": "2022.0.2+2",
   "description": "n2logger - a logger for web: js and node",
   "main": "dist/core/index.js",
   "types": "dist/core/index.d.ts",
@@ -10,7 +10,7 @@
   "scripts": {
     "start": "tsc",
     "watch": "tsc -w",
-    "build": "tsc && ts-node ./support/build-publish-package-json.ts",
+    "build": "tsc && ts-node ./support/build-publish-package-json.ts && cp README.md dist",
     "test": "jest",
     "tag-version": "ts-node ./support/tag-version.ts"
   },

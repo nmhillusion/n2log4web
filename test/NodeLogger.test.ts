@@ -14,7 +14,9 @@ test("test simple log with setting default config", () => {
   logger.warn("[w1] simple log");
   logger.error("[e1] simple log");
 
-  const logger2 = LogFactory.getNodeLog(__filename);
+  const logger2 = LogFactory.fromConfig(
+    new LoggerConfig().setIncludingTimestamp(false)
+  ).getNodeLog(__filename);
 
   logger2.info("[i2] simple log");
   logger2.debug("[d2] simple log");
