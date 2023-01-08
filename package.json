@@ -1,6 +1,6 @@
 {
   "name": "@nmhillusion/n2log4web",
-  "version": "2022.0.2+2",
+  "version": "2023.1.8.1",
   "description": "n2logger - a logger for web: js and node",
   "main": "dist/core/index.js",
   "types": "dist/core/index.d.ts",
@@ -22,14 +22,16 @@
   ],
   "author": "nmhillusion",
   "license": "MIT",
-  "devDependencies": {
+  "dependencies": {
     "@nmhillusion/n2mix": "^2022.0.9",
-    "@types/jest": "^28.1.1",
-    "chalk": "4.1.2",
-    "jest": "^28.1.1",
+    "chalk": "4.1.2"
+  },
+  "devDependencies": {
+    "@types/jest": "^29.2.5",
+    "jest": "^29.3.1",
     "path": "^0.12.7",
-    "ts-jest": "^28.0.4",
+    "ts-jest": "^29.0.3",
     "ts-node": "^10.9.1",
-    "typescript": "^4.7.3"
+    "typescript": "^4.9.4"
   }
 }
